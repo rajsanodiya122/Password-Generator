@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Generator</title>
+    <link rel="stylesheet" href="style.css">
+
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="box">
+            <p>
+                <h1>Password Generator</h1>
+            </p>
+            <div class="input">
+                <input type="text" id="name" placeholder="Enter Your First Name"> <br><br>
+                <input type="text" id="lastname" placeholder="Enter Your Last Name"><br><br>
+                <input type="number" id="number" placeholder="Enter Your Number" max="999999999" required><br><br>
+            </div>
+            <p id="Password"></p>
+            <button onclick="pass()">Generate Password</button>
+            <button onclick="resetInputs()">Reset</button>
+        </div>
+    </div>
+
+    <script>
+        const Password = document.getElementById("Password");
+
+        function pass() {
+            const name = document.getElementById("name").value;
+            const lastname = document.getElementById("lastname").value;
+            const number = document.getElementById("number").value;
+            const symbol = "@$/&%~";
+
+            let pass = "";
+
+            pass = pass + name[Math.floor(Math.random() * name.length)];
+            pass = pass + name[Math.floor(Math.random() * name.length)];
+            pass = pass + name[Math.floor(Math.random() * name.length)];
+            pass = pass + name[Math.floor(Math.random() * name.length)];
+
+            pass = pass + lastname[Math.floor(Math.random() * lastname.length)];
+            pass = pass + lastname[Math.floor(Math.random() * lastname.length)];
+
+            pass = pass + symbol[Math.floor(Math.random() * symbol.length)];
+
+            pass = pass + number[Math.floor(Math.random() * number.length)];
+            pass = pass + number[Math.floor(Math.random() * number.length)];
+            pass = pass + number[Math.floor(Math.random() * number.length)];
+            pass = pass + number[Math.floor(Math.random() * number.length)];
+            Password.textContent = `Password: ${pass}`;
+        }
+
+        function resetInputs() {
+
+            document.getElementById("name").value = "";
+            document.getElementById("lastname").value = "";
+            document.getElementById("number").value = "";
+            document.getElementById("Password").textContent = "";
+
+        }
+    </script>
+</body>
+
+</html>
